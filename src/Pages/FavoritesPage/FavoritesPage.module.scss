@@ -1,0 +1,22 @@
+.favorites {
+  width: 960px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.empty {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  color: var(--text-secondary);
+}

@@ -1,0 +1,53 @@
+.authPage {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-main);
+  padding: 24px;
+}
+
+.form {
+  width: 360px;
+  max-width: 100%;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-l);
+  padding: 32px 28px 28px;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    box-shadow: var(--shadow-hover);
+    transition: box-shadow var(--transition-fast);
+  }
+
+  &Error {
+    text-align: center;
+    color: var(--danger);
+    font-size: 12px;
+    margin-bottom: 24px;
+  }
+
+  &Actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+.title {
+  margin: 0 0 24px;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  letter-spacing: 0.2px;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}

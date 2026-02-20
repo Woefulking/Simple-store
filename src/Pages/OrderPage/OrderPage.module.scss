@@ -1,0 +1,26 @@
+.order {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-self: center;
+  gap: 24px;
+}
+
+.back {
+  color: var(--text-muted);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.date {
+  font-size: 14px;
+  color: var(--text-muted);
+
+  &Value {
+    color: var(--text-primary);
+  }
+}
