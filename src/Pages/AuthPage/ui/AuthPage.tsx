@@ -1,19 +1,18 @@
-import { Button, ButtonVariants } from "components/Button/Button";
-import { Input } from "components/Input/Input"
+import { Button, ButtonVariants } from "Shared/ui/Button/Button";
+import { Input } from "Shared/ui/Input/Input"
 import { useState } from "react"
 import z from "zod";
 import cls from './AuthPage.module.scss';
-import { useUserStore } from "entities/User/UserStore";
-import { User } from "entities/User/UserTypes";
 import clsx from "clsx";
 import { useLocation, useNavigate } from "react-router";
 import { loginSchema, registerSchema } from "../model/AuthSchemas";
-import { checkUserExist, createUser, getUser } from "storage/userStorage";
-import { setCurrentUser } from "storage/currentUserStore";
-import { getFromStorage, saveToStorage } from "storage/storage";
-import { Guest } from "entities/Guest/GuestTypes";
-import { mergeGuestWithUser } from "helpers/mergeGuestWithUser";
-import { Title, TitleVariants } from "components/Title/Title";
+import { checkUserExist, createUser, getUser } from "app/storage/userStorage";
+import { setCurrentUser } from "app/storage/currentUserStore";
+import { getFromStorage, saveToStorage } from "app/storage/storage";
+import { Title, TitleVariants } from "Shared/ui/Title/Title";
+import { User, useUserStore } from "entities/User";
+import { Guest } from "entities/Guest";
+import { mergeGuestWithUser } from "Features/lib/mergeGuestWithUser";
 
 type AuthForm = {
     login: string;
