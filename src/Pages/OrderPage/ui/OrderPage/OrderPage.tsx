@@ -18,9 +18,9 @@ export const OrderPage = () => {
 
     return (
         <div className={clsx(cls.order)}>
-            <Button variant={ButtonVariants.ICON_TEXT} className={clsx(cls.back)} onClick={() => navigate(-1)}>
+            <Button variant={ButtonVariants.ICON_TEXT} className={clsx(cls.back)} onClick={() => navigate('/')}>
                 <FaArrowLeftLong size={24} />
-                Вернуться назад
+                Вернуться на главную
             </Button>
             <div className={clsx(cls.details)}>
                 <Title variant={TitleVariants.H2}>{`Заказ ${order?.id}`}</Title>

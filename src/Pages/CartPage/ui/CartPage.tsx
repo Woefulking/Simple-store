@@ -28,7 +28,7 @@ export const CartPage = () => {
     }
   }
 
-  const handleCreateOrderClick = () => {
+  const handleCheckoutClick = () => {
     if (!isAuth) {
       navigate('/auth', {
         state: { from: location.pathname },
@@ -40,6 +40,7 @@ export const CartPage = () => {
     const newOrder = createOrder(cartItems);
 
     userDispatch({ type: 'createOrder', payload: newOrder });
+    navigate(`/orders/${newOrder.id}`);
     cartDispatch({ type: 'clear' });
   }
 
@@ -75,7 +76,7 @@ export const CartPage = () => {
               </div>
 
               <div className={clsx(cls.actions)}>
-                <Button padding={true} variant={ButtonVariants.BLUE} onClick={handleCreateOrderClick}>
+                <Button padding={true} variant={ButtonVariants.BLUE} onClick={handleCheckoutClick}>
                   Оформить заказ
                 </Button>
                 <Button
