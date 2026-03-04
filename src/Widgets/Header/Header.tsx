@@ -65,7 +65,7 @@ export const Header = () => {
             name="search"
             value={search}
             className={clsx(cls.searchInput)}
-            placeholder="Поиск по сайту"
+            placeholder="Search products"
             onChange={handleChange}
           />
           <CiSearch size={24} className={clsx(cls.searchIcon)} />
@@ -99,7 +99,7 @@ export const Header = () => {
           :
           <Link to={'/auth'}>
             <Button variant={ButtonVariants.BLUE} padding={true}>
-              Войти
+              Login
             </Button>
           </Link>
         }

@@ -1,8 +1,8 @@
 export const filters = [
-  { type: 'low_price', value: 'Сначала недорогие' },
-  { type: 'high_price', value: 'Сначала дорогие' },
-  { type: 'count', value: 'По количеству отзывов' },
-  { type: 'rate', value: 'Сначала с лучшей оценкой' },
+  { type: 'low_price', value: 'Price: Low to High' },
+  { type: 'high_price', value: 'Price: High to Low' },
+  { type: 'count', value: 'Most Reviews' },
+  { type: 'rate', value: 'Top Rated' },
 ] as const;
 
 export type FilterItem = (typeof filters)[number];

@@ -6,12 +6,20 @@ import clsx from "clsx";
 import { useFilterStore } from "Widgets/Filters/model/FiltersStore";
 import { Filters } from "Widgets/Filters/ui/Filters";
 import { ProductItem } from "Features/ProductItem";
+import { useProducts } from "entities/Product";
+import { Loading } from "Shared/ui/Loading/Loading";
+import { ErrorMessage } from "Shared/ui/ErrorMessage/ErrorMessage";
 
 export const ProductPage = () => {
-    const products = useFilterStore((state) => state.filtered);
-
     const { category } = useParams();
+    const { products, loading, error } = useProducts();
     const filterDispatch = useFilterStore((state) => state.dispatch);
+
+    useEffect(() => {
+        filterDispatch({ type: 'init', payload: products });
+    }, [products, filterDispatch]);
+
+    const filteredProducts = useFilterStore((state) => state.filtered);
 
     useEffect(() => {
         filterDispatch({
@@ -19,15 +27,23 @@ export const ProductPage = () => {
         });
     }, [category]);
 
+    if (loading) {
+        return <Loading />;
+    }
+
+    if (error) {
+        return <ErrorMessage />;
+    }
+
     return (
         <>
             <Filters />
             <div className={clsx(cls.list)}>
-                {products &&
-                    products.map((product) => (
+                {filteredProducts &&
+                    filteredProducts.map((filteredProduct) => (
                         <ProductItem
-                            key={product.id}
-                            product={product}
+                            key={filteredProduct.id}
+                            product={filteredProduct}
                         />
                     ))}
             </div>

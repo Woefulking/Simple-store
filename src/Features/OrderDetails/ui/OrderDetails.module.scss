@@ -54,3 +54,14 @@
   align-items: center;
   gap: 16px;
 }
+
+.favorite {
+  & svg {
+    fill: transparent;
+    stroke: var(--text-secondary);
+  }
+}
+
+.filled svg {
+  fill: var(--text-secondary);
+}

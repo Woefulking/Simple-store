@@ -1,8 +1,8 @@
 import clsx from 'clsx';
-import cls from './Error.module.scss';
+import cls from './ErrorMessage.module.scss';
 import { TfiFaceSad } from "react-icons/tfi";
 
-export const Error = () => {
+export const ErrorMessage = () => {
     return (
         <div className={clsx(cls.error)}>
             <TfiFaceSad size={128} />

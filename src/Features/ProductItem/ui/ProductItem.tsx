@@ -59,14 +59,14 @@ export const ProductItem = (props: ProductItemProps) => {
             <div className={clsx(cls.additional)}>
                 <div className={clsx(cls.rating)}>
                     <span className={clsx(cls.label)}>
-                        Рейтинг: <strong className={clsx(cls.value)}>{product.rating.rate}</strong>
+                        Rating: <strong className={clsx(cls.value)}>{product.rating.rate}</strong>
                     </span>
                     <span className={clsx(cls.label)}>
-                        Число отзывов: <strong className={clsx(cls.value)}>{product.rating.count}</strong>
+                        Reviews : <strong className={clsx(cls.value)}>{product.rating.count}</strong>
                     </span>
                 </div>
                 <span className={clsx(cls.label)}>
-                    Цена: <strong className={clsx(cls.value)}>{product.price} $</strong>
+                    Price: <strong className={clsx(cls.value)}>{product.price} $</strong>
                 </span>
             </div>
             <div className={clsx(cls.actions)}>
@@ -82,7 +82,7 @@ export const ProductItem = (props: ProductItemProps) => {
                     variant={ButtonVariants.BLUE}
                     onClick={() => handleCartClick(product)}
                 >
-                    {!isInCart ? 'Добавить в корзину' : 'Добавлено'}
+                    {!isInCart ? 'Add to Cart' : 'Added'}
                 </Button>
             </div>
         </div >

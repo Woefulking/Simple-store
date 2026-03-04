@@ -10,7 +10,7 @@ export const FavoritesPage = () => {
         <div className={clsx(cls.favorites)}>
             {favorites.length > 0 ? (
                 <>
-                    <Title variant={TitleVariants.H1}>Избранное</Title>
+                    <Title variant={TitleVariants.H1}>Favorites</Title>
                     <div className={clsx(cls.list)}>
                         {favorites.map((item) => (
                             <FavoriteItem item={item} key={item.id} />
@@ -18,7 +18,7 @@ export const FavoritesPage = () => {
                     </div>
                 </>
             ) : (
-                <div className={clsx(cls.empty)}>Список избранных товаров пуст</div>
+                <div className={clsx(cls.empty)}>Your favorites list is empty</div>
             )}
         </div>
     )

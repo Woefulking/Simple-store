@@ -39,11 +39,6 @@ export const ProfilePage = () => {
     const [emailErrors, setEmailErrors] = useState<EmailErrors>({});
 
     const fileInputRef = useRef<HTMLInputElement>(null)
-    const modalRef = useRef<HTMLDivElement | null>(null);
-
-    useClickOutside(modalRef, () => {
-        setPasswordFormOpen(false);
-    })
 
     const validateEmail = () => {
         const result = emailSchema.safeParse({ email: draftUser.email });
@@ -135,10 +130,10 @@ export const ProfilePage = () => {
     return (
         <>
             <div className={clsx(cls.profile)}>
-                <Title variant={TitleVariants.H1}>Личный кабинет</Title>
+                <Title variant={TitleVariants.H1}>My Account</Title>
                 <div className={clsx(cls.content)}>
                     <div className={clsx(cls.orders)}>
-                        <Title variant={TitleVariants.H2} className={clsx(cls.subtitle)}>Список заказов</Title>
+                        <Title variant={TitleVariants.H2} className={clsx(cls.subtitle)}>Order History</Title>
                         {sortedOrders.length > 0 ? (
                             <div className={clsx(cls.list)}>
                                 {sortedOrders?.map((order) => (
@@ -149,7 +144,7 @@ export const ProfilePage = () => {
                         }
                     </div>
                     <div className={clsx(cls.details)}>
-                        <Title variant={TitleVariants.H2} className={clsx(cls.subtitle)}>Персональные данные</Title>
+                        <Title variant={TitleVariants.H2} className={clsx(cls.subtitle)}>Personal Details</Title>
                         <form className={clsx(cls.form)}>
                             <div className={clsx(cls.wrapper)}>
                                 <div className={clsx(cls.avatar)}>
@@ -185,8 +180,8 @@ export const ProfilePage = () => {
                                             />
                                             {isEditing ? (
                                                 <div className={clsx(cls.fieldActions)}>
-                                                    <Button padding={true} variant={ButtonVariants.BLUE} onClick={onSaveHandler}>Сохранить</Button>
-                                                    <Button padding={true} variant={ButtonVariants.LIGHT_GREY} onClick={onCancelhandler}>Отменить</Button>
+                                                    <Button padding={true} variant={ButtonVariants.BLUE} onClick={onSaveHandler}>Save</Button>
+                                                    <Button padding={true} variant={ButtonVariants.LIGHT_GREY} onClick={onCancelhandler}>Cancel</Button>
                                                 </div>
                                             ) : (
                                                 <div className={clsx(cls.fieldEdit)}>
@@ -201,7 +196,7 @@ export const ProfilePage = () => {
                                 })}
                             </div>
                             <Button padding={true} variant={ButtonVariants.BLUE} onClick={() => setPasswordFormOpen(true)} className={clsx(cls.change)}>
-                                Сменить пароль
+                                Change Password
                             </Button>
                         </form>
                         <div className={clsx(cls.actions)}>
@@ -211,7 +206,7 @@ export const ProfilePage = () => {
                                 className={clsx(cls.logout)}
                                 onClick={handleLogoutClick}
                             >
-                                Выйти из аккаунта
+                                Log Out
                             </Button>
 
                             <Button
@@ -220,14 +215,16 @@ export const ProfilePage = () => {
                                 className={clsx(cls.delete)}
                                 onClick={handleDeleteAccountClick}
                             >
-                                Удалить профиль
+                                Delete Account
                             </Button>
                         </div>
                     </div>
                 </div>
             </div >
 
-            <ChangePasswordModal isOpen={isPasswordFormOpen} onClose={() => setPasswordFormOpen(false)} user={draftUser} />
+            {isPasswordFormOpen && (
+                <ChangePasswordModal onClose={() => setPasswordFormOpen(false)} user={draftUser} />
+            )}
         </>
     )
 }

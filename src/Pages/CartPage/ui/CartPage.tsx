@@ -48,7 +48,7 @@ export const CartPage = () => {
     <div className={clsx(cls.cart)}>
       {cartItems.length > 0 ? (
         <>
-          <Title variant={TitleVariants.H1}>Корзина</Title>
+          <Title variant={TitleVariants.H1}>Cart</Title>
           <div className={clsx(cls.content)}>
             <div className={clsx(cls.list)}>
               {cartItems.map((item) => (
@@ -59,12 +59,12 @@ export const CartPage = () => {
             <div className={clsx(cls.options)}>
               <div className={clsx(cls.total)}>
                 <span className={clsx(cls.totalLabel)}>
-                  Итого:
+                  Subtotal:
                 </span>
                 <div className={clsx(cls.totalWrapper)}>
                   <span className={clsx(cls.totalValue)}>
                     <strong>
-                      {`${cartLength} ${cartLength > 10 ? 'товаров' : 'товар'}`}
+                      {`${cartLength} ${cartLength > 10 ? 'items' : 'item'}`}
                     </strong>
                   </span>
                   <span className={clsx(cls.totalValue)}>
@@ -77,7 +77,7 @@ export const CartPage = () => {
 
               <div className={clsx(cls.actions)}>
                 <Button padding={true} variant={ButtonVariants.BLUE} onClick={handleCheckoutClick}>
-                  Оформить заказ
+                  Checkout
                 </Button>
                 <Button
                   padding={true}
@@ -89,14 +89,14 @@ export const CartPage = () => {
                     })
                   }
                 >
-                  Очистить корзину
+                  Clear Cart
                 </Button>
               </div>
             </div>
           </div>
         </>
       ) : (
-        <div className={clsx(cls.empty)}>Корзина пуста</div>
+        <div className={clsx(cls.empty)}>Your cart is empty</div>
       )}
     </div>
   );

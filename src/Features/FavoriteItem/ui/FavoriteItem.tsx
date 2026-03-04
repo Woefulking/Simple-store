@@ -50,18 +50,18 @@ export const FavoriteItem = (props: FavoriteItemProps) => {
                 <Title variant={TitleVariants.H3}>{item.title}</Title>
                 <div className={clsx(cls.additional)}>
                     <div className={clsx(cls.rating)}>
-                        <span className={clsx(cls.label)}>Рейтинг: </span>
+                        <span className={clsx(cls.label)}>Rating: </span>
                         <strong>{item.rating.rate}</strong>
                     </div>
                     <div className={clsx(cls.comment)}>
-                        <span className={clsx(cls.label)}>Отзывов: </span>
+                        <span className={clsx(cls.label)}>Reviews: </span>
                         <strong>{item.rating.count}</strong>
                     </div>
                 </div>
             </div>
             <div className={clsx(cls.options)}>
                 <div className={clsx(cls.price)}>
-                    <span className={clsx(cls.label)}>Цена: </span>
+                    <span className={clsx(cls.label)}>Price: </span>
                     <strong>$ {item.price}</strong>
                 </div>
                 <div className={clsx(cls.actions)}>
@@ -69,7 +69,7 @@ export const FavoriteItem = (props: FavoriteItemProps) => {
                         <FiHeart size={30} />
                     </Button>
                     <Button padding={true} variant={ButtonVariants.BLUE} onClick={handleCartClick}>
-                        {!isInCart ? 'Купить' : 'В корзине'}
+                        {!isInCart ? 'Buy' : 'Added to cart'}
                     </Button>
                 </div>
             </div>

@@ -42,7 +42,7 @@ export const CartItem = (props: CartItemProps) => {
                 </div>
             </div>
             <div className={clsx(cls.price)}>
-                <span className={clsx(cls.label)}>Цена: </span>
+                <span className={clsx(cls.label)}>Price: </span>
                 <strong>{item.price} $</strong>
             </div>
             <Button

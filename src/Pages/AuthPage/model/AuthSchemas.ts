@@ -1,18 +1,18 @@
 import z from 'zod';
 
 export const loginSchema = z.object({
-  login: z.string().min(1, 'Логин обязателен').max(10, 'Максимум 10 символов'),
-  password: z.string().min(3, 'Минимум 3 символа').max(10, 'Максимум 10 символов'),
+  login: z.string().min(1, 'Login is required').max(10, 'Maximum 10 characters'),
+  password: z.string().min(3, 'Minimum 3 characters').max(10, 'Maximum 10 characters'),
 });
 
 export const registerSchema = z
   .object({
-    login: z.string().min(1, 'Логин обязателен').max(10, 'Максимум 10 символов'),
-    password: z.string().min(3, 'Минимум 3 символа').max(10, 'Максимум 10 символов'),
-    confirm: z.string().min(1, 'Подтвердите пароль'),
-    email: z.email('Некорректный email').min(1, 'Email обязателен'),
+    login: z.string().min(1, 'Login is required').max(10, 'Maximum 10 characters'),
+    password: z.string().min(3, 'Minimum 3 characters').max(10, 'Maximum 10 characters'),
+    confirm: z.string().min(1, 'Confirm your password'),
+    email: z.email('Invalid email').min(1, 'Email is required'),
   })
   .refine((data) => data.password === data.confirm, {
-    message: 'Пароли не совпадают',
+    message: 'Passwords do not match',
     path: ['confirm'],
   });

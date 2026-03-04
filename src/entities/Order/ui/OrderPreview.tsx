@@ -23,9 +23,9 @@ export const OrderPreview = (props: OrderPreviewProps) => {
                 ))}
             </div>
             <div className={clsx(cls.details)}>
-                <Title variant={TitleVariants.H3}>{`Заказ ${order.id}`}</Title>
+                <Title variant={TitleVariants.H3}>{`Order ${order.id}`}</Title>
                 <span className={clsx(cls.date)}>
-                    Дата оформления заказа: <strong className={clsx(cls.dateValue)}>{formatOrderDate(order.createAt)}</strong>
+                    Order Date: <strong className={clsx(cls.dateValue)}>{formatOrderDate(order.createAt)}</strong>
                 </span>
             </div>
         </div>

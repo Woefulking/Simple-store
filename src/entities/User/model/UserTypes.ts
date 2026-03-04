@@ -3,8 +3,8 @@ import { Order } from 'entities/Order';
 import { Product } from 'entities/Product';
 
 export const userFields = [
-  { name: 'name', label: 'Имя' },
-  { name: 'secondName', label: 'Фамилия' },
+  { name: 'name', label: 'First Name' },
+  { name: 'secondName', label: 'Last Name' },
   { name: 'email', label: 'Email' },
 ] as const;
 

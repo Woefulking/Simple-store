@@ -1,8 +1,7 @@
 import { Modal } from "Shared/ui/Modal/Modal";
 import clsx from "clsx";
 import cls from './ChangePasswordModal.module.scss';
-import { useRef, useState } from "react";
-import { useClickOutside } from "Shared/hooks/useClickOutside";
+import { useState } from "react";
 import { Input } from "Shared/ui/Input/Input";
 import { Button, ButtonVariants } from "Shared/ui/Button/Button";
 import z from "zod";
@@ -11,13 +10,12 @@ import { User, useUserStore } from "entities/User";
 import { PasswordErrors, PasswordForm, passwordSchema } from "..";
 
 interface PasswordModalProps {
-    isOpen: boolean;
     onClose: () => void;
     user: User;
 
 }
 export const ChangePasswordModal = (props: PasswordModalProps) => {
-    const { isOpen, onClose, user } = props;
+    const { onClose, user } = props;
     const dispatch = useUserStore((state) => state.dispatch)!;
 
     const [form, setForm] = useState<PasswordForm>({
@@ -26,13 +24,6 @@ export const ChangePasswordModal = (props: PasswordModalProps) => {
     });
 
     const [errors, setErrors] = useState<PasswordErrors>({});
-
-    const modalRef = useRef<HTMLDivElement | null>(null);
-
-    useClickOutside(modalRef, () => {
-        onClose();
-        setForm({ password: '', confirm: '' });
-    });
 
     const validate = () => {
         const result = passwordSchema.safeParse(form);
@@ -72,19 +63,20 @@ export const ChangePasswordModal = (props: PasswordModalProps) => {
 
         updateUser(nextUser);
         dispatch({ type: 'update', payload: nextUser });
-        setForm({} as PasswordForm);
+        setForm({ password: '', confirm: '' });
+        setErrors({});
         onClose();
     }
 
     return (
-        <Modal isOpen={isOpen} onClose={onClose}>
-            <div className={clsx(cls.modal)} ref={modalRef}>
-                <h2 className={clsx(cls.title, cls.modalTitle)}>Смена пароля</h2>
+        <Modal onClose={onClose}>
+            <div className={clsx(cls.modal)}>
+                <h2 className={clsx(cls.title, cls.modalTitle)}>Password Change</h2>
                 <form className={clsx(cls.form)} name="changePasswordForm">
                     <Input
                         className={clsx(cls.input)}
                         type='password'
-                        label='Пароль'
+                        label='Password'
                         name='password'
                         value={form.password}
                         onChange={(value: string) => onChangeHandler('password', value)}
@@ -93,16 +85,16 @@ export const ChangePasswordModal = (props: PasswordModalProps) => {
                     <Input
                         className={clsx(cls.input)}
                         type='password'
-                        label='Подтверждение пароля'
+                        label='Confirm password'
                         name='confirmpassword'
                         value={form.confirm}
                         onChange={(value: string) => onChangeHandler('confirm', value)}
                         error={errors.confirm}
                     />
+                    <Button variant={ButtonVariants.BLUE} padding={true} onClick={onSavePasswordHandler}>
+                        Save
+                    </Button>
                 </form>
-                <Button variant={ButtonVariants.BLUE} onClick={onSavePasswordHandler}>
-                    Сохранить
-                </Button>
             </div>
         </Modal>
     )

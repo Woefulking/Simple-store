@@ -20,12 +20,12 @@ export const OrderPage = () => {
         <div className={clsx(cls.order)}>
             <Button variant={ButtonVariants.ICON_TEXT} className={clsx(cls.back)} onClick={() => navigate('/')}>
                 <FaArrowLeftLong size={24} />
-                Вернуться на главную
+                Back to Home
             </Button>
             <div className={clsx(cls.details)}>
-                <Title variant={TitleVariants.H2}>{`Заказ ${order?.id}`}</Title>
+                <Title variant={TitleVariants.H2}>{`Order ${order?.id}`}</Title>
                 <span className={clsx(cls.date)}>
-                    Дата оформления заказа: <strong className={clsx(cls.dateValue)}>{formatOrderDate(order?.createAt!)}</strong>
+                    Order Date: <strong className={clsx(cls.dateValue)}>{formatOrderDate(order?.createAt!)}</strong>
                 </span>
             </div>
             <div className={clsx(cls.list)}>

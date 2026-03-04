@@ -1,23 +1,25 @@
 import { ReactNode } from 'react';
 import cls from './Modal.module.scss';
 import clsx from 'clsx';
+import { createPortal } from 'react-dom';
 
 interface ModalProps {
     children?: ReactNode;
-    isOpen: boolean;
     onClose: () => void;
 }
 
 export const Modal = (props: ModalProps) => {
-    const { children, isOpen, onClose } = props;
+    const { children, onClose } = props;
 
-    if (!isOpen) return null;
-
-    return (
+    return createPortal(
         <div className={clsx(cls.overlay)} onClick={onClose}>
-            <div className={clsx(cls.content)}>
+            <div
+                className={clsx(cls.content)}
+                onClick={(e) => e.stopPropagation()}
+            >
                 {children}
             </div>
-        </div>
-    )
+        </div>,
+        document.body
+    );
 }

@@ -2,10 +2,10 @@ import z from 'zod';
 
 export const passwordSchema = z
   .object({
-    password: z.string().min(3, 'Минимум 3 символа').max(10, 'Максимум 10 символов'),
-    confirm: z.string().min(1, 'Подтвердите пароль'),
+    password: z.string().min(3, 'Minimum 3 characters').max(10, 'Maximum 10 characters'),
+    confirm: z.string().min(1, 'Confirm your password'),
   })
   .refine((data) => data.password === data.confirm, {
-    message: 'Пароли не совпадают',
+    message: 'Passwords do not match',
     path: ['confirm'],
   });

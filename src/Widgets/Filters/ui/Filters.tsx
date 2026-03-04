@@ -28,7 +28,7 @@ export const Filters = () => {
 
   return (
     <div className={clsx(cls.filters)}>
-      <span className={clsx(cls.label)}>Сортировка:</span>
+      <span className={clsx(cls.label)}>Sorting:</span>
       <div className={clsx(cls.select)} ref={dropdownRef}>
         <button className={clsx(cls.selectCurrent)} onClick={() => setIsOpen(!isOpen)}>
           {filter}
