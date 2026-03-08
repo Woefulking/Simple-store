@@ -9,6 +9,7 @@
   cursor: pointer;
 
   &:hover {
+    transform: translateY(-2px);
     box-shadow: var(--shadow-soft);
   }
 }
@@ -45,6 +46,10 @@
 .details {
   display: flex;
   flex-direction: column;
+}
+
+.label {
+  color: var(--text-muted);
 }
 
 .date {

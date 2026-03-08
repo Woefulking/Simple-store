@@ -4,7 +4,6 @@ import { Input } from "Shared/ui/Input/Input";
 import { useRef, useState } from "react";
 import { CiEdit } from "react-icons/ci";
 import z from "zod";
-import { useClickOutside } from "Shared/hooks/useClickOutside";
 import { deleteUserFromLocalStorage, updateUser } from "app/storage/userStorage";
 import { removeCurrentUser } from "app/storage/currentUserStore";
 import { Title, TitleVariants } from "Shared/ui/Title/Title";
@@ -100,16 +99,19 @@ export const ProfilePage = () => {
         const file = e.target.files?.[0]
         if (!file) return
 
-        const url = URL.createObjectURL(file)
+        const reader = new FileReader()
 
-        userDispatch({
-            type: 'update',
-            payload: { avatar: url },
-        })
+        reader.onloadend = () => {
+            const base64 = reader.result as string
 
-        if (user) {
-            updateUser({ ...user, avatar: url });
+            userDispatch({
+                type: 'update',
+                payload: { avatar: base64 },
+            })
+
         }
+
+        reader.readAsDataURL(file)
     }
 
     const handleLogoutClick = () => {

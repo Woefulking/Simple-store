@@ -6,6 +6,8 @@
   border-radius: var(--radius-l);
   background-color: var(--bg-secondary);
 
+  width: 100%;
+
   max-height: 600px;
 
   box-shadow: var(--shadow-soft);
@@ -26,7 +28,7 @@
 
 .preview {
   flex: 1;
-  min-height: 180px;
+  height: 250px;
 
   display: flex;
   align-items: center;

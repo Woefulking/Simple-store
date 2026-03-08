@@ -1,7 +1,10 @@
 .list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 16px;
-  grid-row-gap: 16px;
+  gap: 24px;
+  // display: grid;
+  // grid-template-columns: repeat(3, 1fr);
+  // grid-template-rows: 1fr;
+  // grid-column-gap: 16px;
+  // grid-row-gap: 16px;
 }
