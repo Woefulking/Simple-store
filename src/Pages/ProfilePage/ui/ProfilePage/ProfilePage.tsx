@@ -142,7 +142,7 @@ export const ProfilePage = () => {
                                     <OrderPreview order={order} key={order.id} onClick={() => navigate(`/orders/${order.id}`)} />
                                 ))}
                             </div>
-                        ) : <div className={clsx(cls.ordersEmpty)}>Пока пусто</div>
+                        ) : <div className={clsx(cls.ordersEmpty)}>No orders</div>
                         }
                     </div>
                     <div className={clsx(cls.details)}>

@@ -71,7 +71,7 @@ export const AuthPage = () => {
         const exists = checkUserExist(form.login);
 
         if (exists) {
-            setFormError('Пользователь с таким логином уже существует');
+            setFormError('User with this login already exists');
             return false;
         }
 
@@ -98,7 +98,7 @@ export const AuthPage = () => {
         let user = getUser(form.login, form.password);
 
         if (!user) {
-            setFormError('Неверный логин или пароль');
+            setFormError('Invalid login or password');
             return false;
         }
 
@@ -138,22 +138,22 @@ export const AuthPage = () => {
         <div className={clsx(cls.authPage)}>
             <form className={clsx(cls.form)}>
                 <Title variant={TitleVariants.H1}>
-                    {isRegistration ? 'Регистрация' : 'Вход'}
+                    {isRegistration ? 'Registration' : 'Log In'}
                 </Title>
                 <div className={clsx(cls.fields)}>
                     <Input
-                        label="Логин"
+                        label="Login"
                         name="login"
-                        placeholder="Введите ваш логин"
+                        placeholder="Enter your login"
                         value={form.login}
                         type="text"
                         onChange={(value: string) => onChangeHandler('login', value)}
                         error={fieldsErrors.login}
                     />
                     <Input
-                        label="Пароль"
+                        label="Password"
                         name="password"
-                        placeholder="Введите ваш пароль"
+                        placeholder="Enter your password"
                         value={form.password}
                         type="password"
                         onChange={(value: string) => onChangeHandler('password', value)}
@@ -162,9 +162,9 @@ export const AuthPage = () => {
                     {isRegistration && (
                         <>
                             <Input
-                                label="Подверждение парля"
+                                label="Confirm password"
                                 name="confirm"
-                                placeholder="Введите пароль повторно"
+                                placeholder="Confirm your password"
                                 value={form.confirm}
                                 type="password"
                                 onChange={(value: string) => onChangeHandler('confirm', value)}
@@ -173,7 +173,7 @@ export const AuthPage = () => {
                             <Input
                                 label="Email"
                                 name="email"
-                                placeholder="Введите ваш email"
+                                placeholder="Enter your email"
                                 value={form.email}
                                 type="text"
                                 onChange={(value: string) => onChangeHandler('email', value)}
@@ -193,7 +193,7 @@ export const AuthPage = () => {
                         variant={ButtonVariants.BLUE}
                         onClick={onSubmitHandler}
                     >
-                        {!isRegistration ? 'Войти' : 'Зарегистрироваться'}
+                        {!isRegistration ? 'Sign In' : 'Sign Up'}
                     </Button>
                     <Button
                         padding={true}
@@ -203,7 +203,7 @@ export const AuthPage = () => {
                             clearFields();
                         }}
                     >
-                        {!isRegistration ? 'Создать аккаунт' : 'Авторизоваться'}
+                        {!isRegistration ? 'Create account' : 'Log In'}
                     </Button>
                 </div>
             </form>

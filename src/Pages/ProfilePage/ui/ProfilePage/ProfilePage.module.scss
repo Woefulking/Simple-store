@@ -22,7 +22,6 @@
   flex-direction: column;
   border-right: 1px solid var(--text-muted);
   padding-right: 12px;
-  margin-left: -12px;
 
   &Empty {
     height: 100%;
@@ -42,6 +41,7 @@
   max-height: 640px;
   overflow-y: auto;
   padding: 12px;
+  margin-left: -12px;
 
   &::-webkit-scrollbar {
     width: 6px;
