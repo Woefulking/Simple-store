@@ -53,7 +53,7 @@ export const ProductItem = (props: ProductItemProps) => {
                 {product.title}
             </Title>
             <div className={clsx(cls.preview)}>
-                <img src={product.image} />
+                <img src={product.image} alt="preview" />
             </div>
             <p className={clsx(cls.description)}>{product.description}</p>
             <div className={clsx(cls.additional)}>

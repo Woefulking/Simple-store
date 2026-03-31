@@ -25,7 +25,7 @@ export const ProductPage = () => {
         filterDispatch({
             type: (category ?? 'all') as CategoryType,
         });
-    }, [category]);
+    }, [category, filterDispatch]);
 
     if (loading) {
         return <Loading />;

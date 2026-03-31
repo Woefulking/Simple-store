@@ -6,7 +6,7 @@ export const ErrorMessage = () => {
     return (
         <div className={clsx(cls.error)}>
             <TfiFaceSad size={128} />
-            <span className={clsx(cls.message)}>Произошла ошибка при загрузке списка товаров. Попробуйте обновить страницу</span>
+            <span className={clsx(cls.message)}>Failed to load products. Please refresh the page.</span>
         </div>
     )
 }
