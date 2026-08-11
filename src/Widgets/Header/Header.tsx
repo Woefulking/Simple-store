@@ -4,14 +4,14 @@ import { FiHeart } from "react-icons/fi";
 import { CiSearch } from "react-icons/ci";
 import { HiMenu, HiX } from 'react-icons/hi';
 import React, { useState } from "react";
-import { Button, ButtonVariants } from "shared/ui/Button/Button";
-import { categories } from "shared/constants/categories";
+import { Button, ButtonVariants } from "src/Shared/ui/Button/Button";
+import { categories } from "src/Shared/constants/categories";
 import { Link } from "react-router";
-import { useFilterStore } from "widgets/Filters/model/FiltersStore";
-import { Title, TitleVariants } from "shared/ui/Title/Title";
-import { useCartStore } from "entities/Cart";
-import { useFavoritesStore } from "entities/Favorites";
-import { Avatar, useUserStore } from "entities/User";
+import { useFilterStore } from "src/Widgets/Filters/model/FiltersStore";
+import { Title, TitleVariants } from "src/Shared/ui/Title/Title";
+import { useCartStore } from "src/Entities/Cart";
+import { useFavoritesStore } from "src/Entities/Favorites";
+import { Avatar, useUserStore } from "src/Entities/User";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

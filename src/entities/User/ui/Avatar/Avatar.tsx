@@ -1,6 +1,6 @@
 import { FaUser } from "react-icons/fa";
 import { CiCamera } from "react-icons/ci";  
-import { getInitials, useUserStore } from "entities/User";
+import { getInitials, useUserStore } from "src/Entities/User";
 
 interface AvatarProps {
     size?: 'm' | 'xl';

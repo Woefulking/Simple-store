@@ -1,5 +1,5 @@
-import { formatOrderDate, type Order } from "entities/Order";
-import { Title, TitleVariants } from "shared/ui/Title/Title";
+import { formatOrderDate, type Order } from "src/Entities/Order";
+import { Title, TitleVariants } from "src/Shared/ui/Title/Title";
 
 interface OrderPreviewProps {
     order: Order;

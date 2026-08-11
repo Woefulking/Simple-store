@@ -1,4 +1,4 @@
-import type { User } from 'entities/User';
+import type { User } from 'src/Entities/User';
 import { getFromStorage, removeFromStorage, saveToStorage } from './storage';
 
 export function checkUserExist(login: string): boolean {

@@ -1,6 +1,6 @@
-import { Button, ButtonVariants } from "src/shared/ui/Button/Button";
-import { Modal } from "src/shared/ui/Modal/Modal";
-import { Title, TitleVariants } from "src/shared/ui/Title/Title";
+import { Button, ButtonVariants } from "src/Shared/ui/Button/Button";
+import { Modal } from "src/Shared/ui/Modal/Modal";
+import { Title, TitleVariants } from "src/Shared/ui/Title/Title";
 
 interface DeleteAccountModalProps {
     onClose: () => void;

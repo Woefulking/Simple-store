@@ -1,20 +1,20 @@
-import { Avatar } from "entities/User/ui/Avatar/Avatar";
-import { Button, ButtonVariants } from "shared/ui/Button/Button";
-import { Input } from "shared/ui/Input/Input";
+import { Avatar } from "src/Entities/User/ui/Avatar/Avatar";
+import { Button, ButtonVariants } from "src/Shared/ui/Button/Button";
+import { Input } from "src/Shared/ui/Input/Input";
 import { useRef, useState } from "react";
 import { CiEdit } from "react-icons/ci";
 import z from "zod";
-import { deleteUserFromLocalStorage, updateUser } from "app/storage/userStorage";
-import { removeCurrentUser } from "app/storage/currentUserStore";
-import { Title, TitleVariants } from "shared/ui/Title/Title";
-import { ensureAvatarColor, type User, userFields, useUserStore } from "entities/User";
-import { useCartStore } from "entities/Cart";
-import { useFavoritesStore } from "entities/Favorites";
-import { type EmailErrors, emailSchema } from "pages/ProfilePage";
-import { ChangePasswordModal } from "features/ChangePasswordModal";
-import { OrderPreview } from "entities/Order";
+import { deleteUserFromLocalStorage, updateUser } from "src/App/storage/userStorage";
+import { removeCurrentUser } from "src/App/storage/currentUserStore";
+import { Title, TitleVariants } from "src/Shared/ui/Title/Title";
+import { ensureAvatarColor, type User, userFields, useUserStore } from "src/Entities/User";
+import { useCartStore } from "src/Entities/Cart";
+import { useFavoritesStore } from "src/Entities/Favorites";
+import { type EmailErrors, emailSchema } from "src/Pages/ProfilePage";
+import { ChangePasswordModal } from "src/Features/ChangePasswordModal";
+import { OrderPreview } from "src/Entities/Order";
 import { useNavigate } from "react-router";
-import { DeleteAccountModal } from "src/features/DeleteAccountModal";
+import { DeleteAccountModal } from "src/Features/DeleteAccountModal";
 
 export const ProfilePage = () => {
     const navigate = useNavigate();

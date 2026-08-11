@@ -1,6 +1,6 @@
-import type { CartItemType } from 'entities/Cart';
-import type { Order } from 'entities/Order';
-import type { Product } from 'entities/Product';
+import type { CartItemType } from 'src/Entities/Cart';
+import type { Order } from 'src/Entities/Order';
+import type { Product } from 'src/Entities/Product';
 
 export const userFields = [
   { name: 'name', label: 'First Name' },

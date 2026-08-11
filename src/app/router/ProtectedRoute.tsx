@@ -1,4 +1,4 @@
-import { useUserStore } from 'entities/User';
+import { useUserStore } from 'src/Entities/User';
 import { Navigate, useLocation } from 'react-router-dom';
 
 export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {

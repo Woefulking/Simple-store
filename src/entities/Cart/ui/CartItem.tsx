@@ -1,6 +1,6 @@
 import { useCartStore, type CartItemType } from "..";
-import { Title, TitleVariants } from "shared/ui/Title/Title";
-import { Button, ButtonVariants } from "shared/ui/Button/Button";
+import { Title, TitleVariants } from "src/Shared/ui/Title/Title";
+import { Button, ButtonVariants } from "src/Shared/ui/Button/Button";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 

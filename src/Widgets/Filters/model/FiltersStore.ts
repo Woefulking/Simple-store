@@ -1,5 +1,5 @@
-import { categories } from 'shared/constants/categories';
-import { filters } from 'shared/constants/filters';
+import { categories } from 'src/Shared/constants/categories';
+import { filters } from 'src/Shared/constants/filters';
 import { create } from 'zustand/react';
 import { applyFilters } from './FiltersHelpers';
 import type { FiltersAction, FiltersActions, FiltersState } from './FiltersType';

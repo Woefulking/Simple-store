@@ -1,6 +1,6 @@
-import { Title, TitleVariants } from 'shared/ui/Title/Title';
-import { useFavoritesStore } from 'entities/Favorites';
-import { FavoriteItem } from 'features/FavoriteItem';
+import { Title, TitleVariants } from 'src/Shared/ui/Title/Title';
+import { useFavoritesStore } from 'src/Entities/Favorites';
+import { FavoriteItem } from 'src/Features/FavoriteItem';
 
 export const FavoritesPage = () => {
     const favorites = useFavoritesStore((state) => state.items);

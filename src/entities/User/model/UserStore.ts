@@ -1,7 +1,7 @@
 import { create } from 'zustand/react';
 import type { UserAction, UserActions, UserState } from './UserTypes';
-import { getCurrentUser } from 'app/storage/currentUserStore';
-import { updateUser } from 'app/storage/userStorage';
+import { getCurrentUser } from 'src/App/storage/currentUserStore';
+import { updateUser } from 'src/App/storage/userStorage';
 
 function userReducer(state: UserState, action: UserAction): UserState {
   switch (action.type) {

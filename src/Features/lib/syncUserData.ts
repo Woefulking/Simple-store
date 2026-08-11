@@ -1,7 +1,7 @@
-import type { CartItemType } from 'entities/Cart';
-import type { Product } from 'entities/Product';
-import { useUserStore } from 'entities/User';
-import { saveToStorage } from 'app/storage/storage';
+import type { CartItemType } from 'src/Entities/Cart';
+import type { Product } from 'src/Entities/Product';
+import { useUserStore } from 'src/Entities/User';
+import { saveToStorage } from 'src/App/storage/storage';
 
 export function syncUserData(cart: CartItemType[], favorites: Product[]) {
   const user = useUserStore.getState().user;

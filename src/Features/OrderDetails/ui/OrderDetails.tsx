@@ -1,11 +1,11 @@
-import { type CartItemType, useCartStore } from 'entities/Cart';
-import { useFavoritesStore } from 'entities/Favorites';
+import { type CartItemType, useCartStore } from 'src/Entities/Cart';
+import { useFavoritesStore } from 'src/Entities/Favorites';
 import { useNavigate } from 'react-router';
-import { getItemById } from 'shared/lib/getItemById';
-import { Title, TitleVariants } from 'shared/ui/Title/Title';
-import { Button, ButtonVariants } from 'shared/ui/Button/Button';
+import { getItemById } from 'src/Shared/lib/getItemById';
+import { Title, TitleVariants } from 'src/Shared/ui/Title/Title';
+import { Button, ButtonVariants } from 'src/Shared/ui/Button/Button';
 import { FiHeart } from 'react-icons/fi';
-import type { Product } from 'entities/Product';
+import type { Product } from 'src/Entities/Product';
 
 interface OrderDetailsProps {
     item: CartItemType;

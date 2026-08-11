@@ -1,7 +1,7 @@
-import { getFromStorage } from 'app/storage/storage';
-import { updateUser } from 'app/storage/userStorage';
-import type { Guest } from 'entities/Guest';
-import type { User } from 'entities/User';
+import { getFromStorage } from 'src/App/storage/storage';
+import { updateUser } from 'src/App/storage/userStorage';
+import type { Guest } from 'src/Entities/Guest';
+import type { User } from 'src/Entities/User';
 
 export function mergeGuestWithUser(user: User): User {
   const guest = getFromStorage<Guest>('guest');

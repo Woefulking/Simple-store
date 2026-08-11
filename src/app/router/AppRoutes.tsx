@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 import { ProtectedRoute } from "./ProtectedRoute";
-import { ProductPage } from "pages/ProductPage";
-import { AuthPage } from "pages/AuthPage";
-import { CartPage } from "pages/CartPage";
-import { ProfilePage } from "pages/ProfilePage";
-import { FavoritesPage } from "pages/FavoritesPage";
-import { OrderPage } from "pages/OrderPage";
+import { ProductPage } from "src/Pages/ProductPage";
+import { AuthPage } from "src/Pages/AuthPage";
+import { CartPage } from "src/Pages/CartPage";
+import { ProfilePage } from "src/Pages/ProfilePage";
+import { FavoritesPage } from "src/Pages/FavoritesPage";
+import { OrderPage } from "src/Pages/OrderPage";
 import type { ReactNode } from "react";
 import App from "src/App";
 

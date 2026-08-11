@@ -1,12 +1,12 @@
-import type { CategoryType } from "shared/constants/categories";
+import type { CategoryType } from "src/Shared/constants/categories";
 import { useEffect } from "react";
 import { useParams } from "react-router";
-import { useFilterStore } from "widgets/Filters/model/FiltersStore";
-import { Filters } from "widgets/Filters/ui/Filters";
-import { ProductItem } from "features/ProductItem";
-import { useProducts } from "entities/Product";
-import { Loading } from "shared/ui/Loading/Loading";
-import { ErrorMessage } from "shared/ui/ErrorMessage/ErrorMessage";
+import { useFilterStore } from "src/Widgets/Filters/model/FiltersStore";
+import { Filters } from "src/Widgets/Filters/ui/Filters";
+import { ProductItem } from "src/Features/ProductItem";
+import { useProducts } from "src/Entities/Product";
+import { Loading } from "src/Shared/ui/Loading/Loading";
+import { ErrorMessage } from "src/Shared/ui/ErrorMessage/ErrorMessage";
 
 export const ProductPage = () => {
     const { category } = useParams();

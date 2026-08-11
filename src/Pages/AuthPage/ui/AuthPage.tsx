@@ -1,16 +1,16 @@
-import { Button, ButtonVariants } from "shared/ui/Button/Button";
-import { Input } from "shared/ui/Input/Input"
+import { Button, ButtonVariants } from "src/Shared/ui/Button/Button";
+import { Input } from "src/Shared/ui/Input/Input"
 import { useState } from "react"
 import z from "zod";
 import { useLocation, useNavigate } from "react-router";
 import { loginSchema, registerSchema } from "../model/AuthSchemas";
-import { checkUserExist, createUser, getUser } from "app/storage/userStorage";
-import { setCurrentUser } from "app/storage/currentUserStore";
-import { getFromStorage, saveToStorage } from "app/storage/storage";
-import { Title, TitleVariants } from "shared/ui/Title/Title";
-import { mergeGuestWithUser } from "features/lib/mergeGuestWithUser";
-import { useUserStore, type User } from "entities/User";
-import type { Guest } from "entities/Guest";
+import { checkUserExist, createUser, getUser } from "src/App/storage/userStorage";
+import { setCurrentUser } from "src/App/storage/currentUserStore";
+import { getFromStorage, saveToStorage } from "src/App/storage/storage";
+import { Title, TitleVariants } from "src/Shared/ui/Title/Title";
+import { mergeGuestWithUser } from "src/Features/lib/mergeGuestWithUser";
+import { useUserStore, type User } from "src/Entities/User";
+import type { Guest } from "src/Entities/Guest";
 
 type AuthForm = {
     login: string;

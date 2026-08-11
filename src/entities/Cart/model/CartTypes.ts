@@ -1,5 +1,5 @@
-import type { Product } from 'entities/Product';
-import type { User } from 'entities/User';
+import type { Product } from 'src/Entities/Product';
+import type { User } from 'src/Entities/User';
 
 export interface CartItemType extends Product {
   count: number;

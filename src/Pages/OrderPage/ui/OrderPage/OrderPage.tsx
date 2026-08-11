@@ -1,11 +1,11 @@
 import { useNavigate, useParams } from "react-router";
-import { Title, TitleVariants } from "shared/ui/Title/Title";
-import { Button, ButtonVariants } from "shared/ui/Button/Button";
+import { Title, TitleVariants } from "src/Shared/ui/Title/Title";
+import { Button, ButtonVariants } from "src/Shared/ui/Button/Button";
 import { FaArrowLeftLong } from "react-icons/fa6";
-import { useUserStore } from "entities/User";
-import { formatOrderDate } from "entities/Order";
-import { OrderDetails } from "features/OrderDetails";
-import type { CartItemType } from "entities/Cart";
+import { useUserStore } from "src/Entities/User";
+import { formatOrderDate } from "src/Entities/Order";
+import { OrderDetails } from "src/Features/OrderDetails";
+import type { CartItemType } from "src/Entities/Cart";
 
 export const OrderPage = () => {
     const { id } = useParams();
