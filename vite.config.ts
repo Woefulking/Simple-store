@@ -10,12 +10,12 @@ export default defineConfig({
   resolve: {
     alias: {
       src: path.resolve(__dirname, './src'),
-      app: path.resolve(__dirname, './src/app'),
-      entities: path.resolve(__dirname, './src/entities'),
-      features: path.resolve(__dirname, './src/features'),
-      pages: path.resolve(__dirname, './src/pages'),
-      shared: path.resolve(__dirname, './src/shared'),
-      widgets: path.resolve(__dirname, './src/widgets'),
+      App: path.resolve(__dirname, './src/App'),
+      Entities: path.resolve(__dirname, './src/Entities'),
+      Features: path.resolve(__dirname, './src/Features'),
+      Pages: path.resolve(__dirname, './src/Pages'),
+      Shared: path.resolve(__dirname, './src/Shared'),
+      Widgets: path.resolve(__dirname, './src/Widgets'),
     },
   },
 });
