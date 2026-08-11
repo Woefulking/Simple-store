@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Header } from './widgets/Header/Header';
+import { Header } from 'widgets/Header/Header';
 import { Outlet } from "react-router";
 import { useUserStore } from 'entities/User';
 import { useCartStore } from 'entities/Cart';
