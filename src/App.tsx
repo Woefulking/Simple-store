@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import { Header } from 'Widgets/Header/Header';
 import { Outlet } from "react-router";
-import { useUserStore } from 'Entities/User';
 import { useCartStore } from 'Entities/Cart';
 import { useFavoritesStore } from 'Entities/Favorites';
+import { useUserStore, type UserState } from 'Entities/User';
 
 function App() {
-  const user = useUserStore((state) => state.user);
+  const user = useUserStore((state: UserState) => state.user);
 
   useEffect(() => {
     useCartStore.getState().init(user);

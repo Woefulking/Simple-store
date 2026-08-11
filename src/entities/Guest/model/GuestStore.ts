@@ -1,4 +1,4 @@
-import { getFromStorage, saveToStorage } from 'src/App/storage/storage';
+import { getFromStorage, saveToStorage } from 'App/storage/storage';
 import type { Guest } from './GuestTypes';
 
 export function ensureGuestExsist(): Guest {

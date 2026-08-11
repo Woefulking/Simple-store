@@ -1,12 +1,12 @@
-import { Modal } from "src/Shared/ui/Modal/Modal";
+import { Modal } from "Shared/ui/Modal/Modal";
 import { useState } from "react";
-import { Input } from "src/Shared/ui/Input/Input";
-import { Button, ButtonVariants } from "src/Shared/ui/Button/Button";
+import { Input } from "Shared/ui/Input/Input";
+import { Button, ButtonVariants } from "Shared/ui/Button/Button";
 import z from "zod";
-import { updateUser } from "src/App/storage/userStorage";
-import { type User, useUserStore } from "src/Entities/User";
+import { updateUser } from "App/storage/userStorage";
+import { type User, useUserStore } from "Entities/User";
 import { type PasswordErrors, type PasswordForm, passwordSchema } from "..";
-import { Title, TitleVariants } from "src/Shared/ui/Title/Title";
+import { Title, TitleVariants } from "Shared/ui/Title/Title";
 
 interface PasswordModalProps {
     onClose: () => void;
