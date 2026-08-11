@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import { Header } from 'src/Widgets/Header/Header';
+import { Header } from 'Widgets/Header/Header';
 import { Outlet } from "react-router";
-import { useUserStore } from 'src/Entities/User';
-import { useCartStore } from 'src/Entities/Cart';
-import { useFavoritesStore } from 'src/Entities/Favorites';
+import { useUserStore } from 'Entities/User';
+import { useCartStore } from 'Entities/Cart';
+import { useFavoritesStore } from 'Entities/Favorites';
 
 function App() {
   const user = useUserStore((state) => state.user);

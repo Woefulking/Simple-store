@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
-import { useClickOutside } from 'src/Shared/hooks/useClickOutside';
-import { type FilterItem, filters, type FilterValue } from 'src/Shared/constants/filters';
+import { useClickOutside } from 'Shared/hooks/useClickOutside';
+import { type FilterItem, filters, type FilterValue } from 'Shared/constants/filters';
 import { useFilterStore } from '../model/FiltersStore';
 
 export const Filters = () => {

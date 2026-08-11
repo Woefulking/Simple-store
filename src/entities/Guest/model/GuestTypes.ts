@@ -1,5 +1,5 @@
-import type { CartItemType } from 'src/Entities/Cart';
-import type { Product } from 'src/Entities/Product';
+import type { CartItemType } from 'Entities/Cart';
+import type { Product } from 'Entities/Product';
 
 export interface Guest {
   cart: CartItemType[];

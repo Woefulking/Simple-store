@@ -9,7 +9,6 @@ export default defineConfig({
   plugins: [react(), babel({ presets: [reactCompilerPreset()] }), tailwindcss()],
   resolve: {
     alias: {
-      src: path.resolve(__dirname, './src'),
       App: path.resolve(__dirname, './src/App'),
       Entities: path.resolve(__dirname, './src/Entities'),
       Features: path.resolve(__dirname, './src/Features'),

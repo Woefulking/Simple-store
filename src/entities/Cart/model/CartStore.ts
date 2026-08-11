@@ -1,9 +1,9 @@
 import { create } from 'zustand/react';
 import type { CartAction, CartActions, CartItemType, CartState } from './CartTypes';
-import type { User } from 'src/Entities/User';
-import { ensureGuestExsist } from 'src/Entities/Guest';
-import { useFavoritesStore } from 'src/Entities/Favorites';
-import { syncUserData } from 'src/Features/lib/syncUserData';
+import type { User } from 'Entities/User';
+import { ensureGuestExsist } from 'Entities/Guest';
+import { useFavoritesStore } from 'Entities/Favorites';
+import { syncUserData } from 'Features/lib/syncUserData';
 
 export function updateItemCount(items: CartItemType[], id: number, value: number): CartItemType[] {
   const target = items.find((item) => item.id === id);

@@ -1,7 +1,7 @@
-import type { CategoryType } from 'src/Shared/constants/categories';
-import type { FilterType } from 'src/Shared/constants/filters';
+import type { CategoryType } from 'Shared/constants/categories';
+import type { FilterType } from 'Shared/constants/filters';
 import type { FiltersState } from './FiltersType';
-import type { Product } from 'src/Entities/Product';
+import type { Product } from 'Entities/Product';
 
 function applyCategory(products: Product[], category: CategoryType) {
   switch (category) {

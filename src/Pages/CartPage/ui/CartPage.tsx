@@ -1,10 +1,10 @@
-import { Button, ButtonVariants } from 'src/Shared/ui/Button/Button';
+import { Button, ButtonVariants } from 'Shared/ui/Button/Button';
 import { useLocation, useNavigate } from 'react-router';
-import { Title, TitleVariants } from 'src/Shared/ui/Title/Title';
+import { Title, TitleVariants } from 'Shared/ui/Title/Title';
 import { v4 as uuidv4 } from 'uuid';
-import { CartItem, type CartItemType, useCartStore } from 'src/Entities/Cart';
-import { useUserStore } from 'src/Entities/User';
-import type { Order } from 'src/Entities/Order';
+import { CartItem, type CartItemType, useCartStore } from 'Entities/Cart';
+import { useUserStore } from 'Entities/User';
+import type { Order } from 'Entities/Order';
 
 export const CartPage = () => {
   const cartItems = useCartStore((state) => state.items);

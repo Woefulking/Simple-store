@@ -1,11 +1,11 @@
-import { Title, TitleVariants } from 'src/Shared/ui/Title/Title';
-import { Button, ButtonVariants } from 'src/Shared/ui/Button/Button';
+import { Title, TitleVariants } from 'Shared/ui/Title/Title';
+import { Button, ButtonVariants } from 'Shared/ui/Button/Button';
 import { FiHeart } from "react-icons/fi";
 import { useNavigate } from 'react-router';
-import type { Product } from 'src/Entities/Product';
-import { useCartStore } from 'src/Entities/Cart';
-import { getItemById } from 'src/Shared/lib/getItemById';
-import { useFavoritesStore } from 'src/Entities/Favorites';
+import type { Product } from 'Entities/Product';
+import { useCartStore } from 'Entities/Cart';
+import { getItemById } from 'Shared/lib/getItemById';
+import { useFavoritesStore } from 'Entities/Favorites';
 
 interface FavoriteItemProps {
     item: Product;

@@ -1,4 +1,4 @@
-import { getRandomColor } from 'src/Shared/lib/getRandomColor';
+import { getRandomColor } from 'Shared/lib/getRandomColor';
 import type { User } from '..';
 
 export function ensureAvatarColor(user: User): User {
