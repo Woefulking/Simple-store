@@ -1,11 +1,9 @@
-import { Button, ButtonVariants } from "Shared/ui/Button/Button";
+import { Button, ButtonVariants } from "shared/ui/Button/Button";
 import { FiHeart } from "react-icons/fi";
-import cls from './ProductItem.module.scss';
-import clsx from "clsx";
-import { Title, TitleVariants } from "Shared/ui/Title/Title";
-import { Product } from "entities/Product";
+import { Title, TitleVariants } from "shared/ui/Title/Title";
+import type { Product } from "entities/Product";
 import { useCartStore } from "entities/Cart";
-import { getItemById } from "Shared/lib/getItemById";
+import { getItemById } from "shared/lib/getItemById";
 import { useFavoritesStore } from "entities/Favorites";
 
 interface ProductItemProps {
@@ -48,31 +46,31 @@ export const ProductItem = (props: ProductItemProps) => {
     }
 
     return (
-        <div className={clsx(cls.item)}>
-            <Title variant={TitleVariants.H2} className={clsx(cls.title)}>
+        <div className="w-full flex flex-col p-5 rounded-2xl bg-secondary text-primary shadow-soft transition-all duration-200 md:hover:-translate-y-0.5 md:hover:shadow-soft-hover">
+            <Title variant={TitleVariants.H2} className="text-center min-h-20">
                 {product.title}
             </Title>
-            <div className={clsx(cls.preview)}>
-                <img src={product.image} alt="preview" />
+            <div className="flex-1 max-h-40 md:max-h-60 flex items-center justify-center mb-4">
+                <img src={product.image} alt="preview" className="max-w-full max-h-full object-contain" />
             </div>
-            <p className={clsx(cls.description)}>{product.description}</p>
-            <div className={clsx(cls.additional)}>
-                <div className={clsx(cls.rating)}>
-                    <span className={clsx(cls.label)}>
-                        Rating: <strong className={clsx(cls.value)}>{product.rating.rate}</strong>
+            <p className="line-clamp-3 mb-5 text-sm leading-relaxed text-secondary-text">{product.description}</p>
+            <div className="flex flex-col gap-2 mb-4 text-sm sm:flex-row sm:justify-between sm:items-center sm:text-base">
+                <div className="flex gap-3 text-secondary-text">
+                    <span>
+                        Rating: <strong className="text-primary font-semibold">{product.rating.rate}</strong>
                     </span>
-                    <span className={clsx(cls.label)}>
-                        Reviews : <strong className={clsx(cls.value)}>{product.rating.count}</strong>
+                    <span>
+                        Reviews : <strong className="text-primary font-semibold">{product.rating.count}</strong>
                     </span>
                 </div>
-                <span className={clsx(cls.label)}>
-                    Price: <strong className={clsx(cls.value)}>{product.price} $</strong>
+                <span className="text-secondary-text">
+                    Price: <strong className="text-primary font-bold text-lg sm:text-base">{product.price} $</strong>
                 </span>
             </div>
-            <div className={clsx(cls.actions)}>
+            <div className="flex justify-end items-center gap-4 mt-auto">
                 <Button
                     variant={ButtonVariants.ICON}
-                    className={clsx(cls.favorite, { [cls.filled]: isInFavorite })}
+                    className={`p-2 transition-colors ${!isInFavorite && "[&_svg]:fill-transparent [&_svg]:stroke-secondary-text hover:[&_svg]:stroke-primary"} ${isInFavorite && "[&_svg]:fill-secondary-text [&_svg]:stroke-secondary-text"}`}
                     onClick={() => handleFavoriteClick(product)}
                 >
                     <FiHeart size={30} />
@@ -81,6 +79,7 @@ export const ProductItem = (props: ProductItemProps) => {
                     padding={true}
                     variant={ButtonVariants.BLUE}
                     onClick={() => handleCartClick(product)}
+                     className="sm:w-auto"
                 >
                     {!isInCart ? 'Add to Cart' : 'Added'}
                 </Button>

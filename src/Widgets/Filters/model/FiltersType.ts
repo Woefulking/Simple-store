@@ -1,6 +1,6 @@
-import { Product } from 'entities/Product';
-import { CategoryItem, CategoryType } from 'Shared/constants/categories';
-import { FilterItem, FilterType } from 'Shared/constants/filters';
+import type { Product } from 'entities/Product';
+import type { CategoryItem, CategoryType } from 'shared/constants/categories';
+import type { FilterItem, FilterType } from 'shared/constants/filters';
 
 export type FiltersAction =
   | { type: 'init'; payload: Product[] }

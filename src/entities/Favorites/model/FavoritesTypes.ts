@@ -1,5 +1,5 @@
-import { Product } from 'entities/Product';
-import { User } from 'entities/User';
+import type { Product } from 'entities/Product';
+import type { User } from 'entities/User';
 
 export type FavoritesAction =
   | { type: 'add'; payload: Product }

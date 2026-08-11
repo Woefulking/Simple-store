@@ -1,5 +1,5 @@
-import { getRandomColor } from 'Shared/lib/getRandomColor';
-import { User } from '..';
+import { getRandomColor } from 'shared/lib/getRandomColor';
+import type { User } from '..';
 
 export function ensureAvatarColor(user: User): User {
   const hasInitials = user?.name || user?.secondName;

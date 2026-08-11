@@ -1,4 +1,4 @@
-import { User } from '..';
+import type { User } from '..';
 
 export function getInitials(user: User | null) {
   if (!user) return '';

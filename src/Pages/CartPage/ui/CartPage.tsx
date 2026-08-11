@@ -1,12 +1,10 @@
-import { Button, ButtonVariants } from 'Shared/ui/Button/Button';
+import { Button, ButtonVariants } from 'shared/ui/Button/Button';
 import { useLocation, useNavigate } from 'react-router';
-import { Title, TitleVariants } from 'Shared/ui/Title/Title';
+import { Title, TitleVariants } from 'shared/ui/Title/Title';
 import { v4 as uuidv4 } from 'uuid';
-import { CartItem, CartItemType, useCartStore } from 'entities/Cart';
+import { CartItem, type CartItemType, useCartStore } from 'entities/Cart';
 import { useUserStore } from 'entities/User';
-import { Order } from 'entities/Order';
-import cls from './CartPage.module.scss';
-import clsx from 'clsx';
+import type { Order } from 'entities/Order';
 
 export const CartPage = () => {
   const cartItems = useCartStore((state) => state.items);
@@ -45,29 +43,29 @@ export const CartPage = () => {
   }
 
   return (
-    <div className={clsx(cls.cart)}>
+    <div className="w-full max-w-5xl mx-auto h-full flex flex-col px-4 md:px-0 text-primary">
       {cartItems.length > 0 ? (
         <>
           <Title variant={TitleVariants.H1}>Cart</Title>
-          <div className={clsx(cls.content)}>
-            <div className={clsx(cls.list)}>
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-start">
+            <div className="flex-1 flex flex-col gap-4">
               {cartItems.map((item) => (
                 <CartItem item={item} key={item.id} />
               ))}
             </div>
 
-            <div className={clsx(cls.options)}>
-              <div className={clsx(cls.total)}>
-                <span className={clsx(cls.totalLabel)}>
+            <div className="w-full h-fit flex flex-col gap-5 bg-secondary rounded-2xl px-4 py-6 md:p-8 shadow-soft shrink-0 lg:w-90">
+              <div>
+                <span className="inline-block mb-2 text-sm text-muted">
                   Subtotal:
                 </span>
-                <div className={clsx(cls.totalWrapper)}>
-                  <span className={clsx(cls.totalValue)}>
+                <div className="flex flex-row justify-between text-lg md:text-xl font-semibold">
+                  <span className="text-secondary-text">
                     <strong>
                       {`${cartLength} ${cartLength > 10 ? 'items' : 'item'}`}
                     </strong>
                   </span>
-                  <span className={clsx(cls.totalValue)}>
+                  <span>
                     <strong>
                       {Math.round(total)} $
                     </strong>
@@ -75,14 +73,14 @@ export const CartPage = () => {
                 </div>
               </div>
 
-              <div className={clsx(cls.actions)}>
-                <Button padding={true} variant={ButtonVariants.BLUE} onClick={handleCheckoutClick}>
+              <div className="flex flex-col items-center gap-3">
+                <Button padding={true} variant={ButtonVariants.BLUE} onClick={handleCheckoutClick} className="w-full max-w-80">
                   Checkout
                 </Button>
                 <Button
                   padding={true}
                   variant={ButtonVariants.LIGHT_GREY}
-                  className="cartBtn"
+                  className="w-full max-w-80"
                   onClick={() =>
                     cartDispatch({
                       type: 'clear',
@@ -96,7 +94,7 @@ export const CartPage = () => {
           </div>
         </>
       ) : (
-        <div className={clsx(cls.empty)}>Your cart is empty</div>
+        <div className="flex-1 flex justify-center items-center text-2xl md:text-4xl text-secondary-text font-medium py-20">Your cart is empty</div>
       )}
     </div>
   );

@@ -1,18 +1,16 @@
-import { Button, ButtonVariants } from "Shared/ui/Button/Button";
-import { Input } from "Shared/ui/Input/Input"
+import { Button, ButtonVariants } from "shared/ui/Button/Button";
+import { Input } from "shared/ui/Input/Input"
 import { useState } from "react"
 import z from "zod";
-import cls from './AuthPage.module.scss';
-import clsx from "clsx";
 import { useLocation, useNavigate } from "react-router";
 import { loginSchema, registerSchema } from "../model/AuthSchemas";
 import { checkUserExist, createUser, getUser } from "app/storage/userStorage";
 import { setCurrentUser } from "app/storage/currentUserStore";
 import { getFromStorage, saveToStorage } from "app/storage/storage";
-import { Title, TitleVariants } from "Shared/ui/Title/Title";
-import { User, useUserStore } from "entities/User";
-import { Guest } from "entities/Guest";
-import { mergeGuestWithUser } from "Features/lib/mergeGuestWithUser";
+import { Title, TitleVariants } from "shared/ui/Title/Title";
+import { mergeGuestWithUser } from "features/lib/mergeGuestWithUser";
+import { useUserStore, type User } from "entities/User";
+import type { Guest } from "entities/Guest";
 
 type AuthForm = {
     login: string;
@@ -135,12 +133,12 @@ export const AuthPage = () => {
     }
 
     return (
-        <div className={clsx(cls.authPage)}>
-            <form className={clsx(cls.form)}>
-                <Title variant={TitleVariants.H1}>
+        <div className="h-full flex items-center justify-center bg-main p-4 sm:p-6 text-primary">
+            <form className="w-full max-w-90 bg-secondary rounded-2xl transition-shadow duration-200 hover:shadow-soft-hover px-5 py-6 sm:px-7 sm:py-8 flex flex-col">
+                <Title variant={TitleVariants.H1} className="text-center">
                     {isRegistration ? 'Registration' : 'Log In'}
                 </Title>
-                <div className={clsx(cls.fields)}>
+                <div className="flex flex-col gap-4 mb-6">
                     <Input
                         label="Login"
                         name="login"
@@ -183,14 +181,15 @@ export const AuthPage = () => {
                     )}
                 </div>
                 {formError && (
-                    <div className={clsx(cls.formError)}>
+                    <div className="text-center text-danger text-xs mb-6 font-medium animate-pulse">
                         {formError}
                     </div>
                 )}
-                <div className={clsx(cls.formActions)}>
+                <div className="flex flex-col gap-3">
                     <Button
                         padding={true}
                         variant={ButtonVariants.BLUE}
+                        className="w-full"
                         onClick={onSubmitHandler}
                     >
                         {!isRegistration ? 'Sign In' : 'Sign Up'}
@@ -198,6 +197,7 @@ export const AuthPage = () => {
                     <Button
                         padding={true}
                         variant={ButtonVariants.LIGHT_GREY}
+                        className="w-full"
                         onClick={() => {
                             setIsRegistration(!isRegistration);
                             clearFields();

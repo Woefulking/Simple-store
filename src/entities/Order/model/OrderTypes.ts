@@ -1,4 +1,4 @@
-import { CartItemType } from 'entities/Cart';
+import type { CartItemType } from 'entities/Cart';
 
 export interface Order {
   id: string;

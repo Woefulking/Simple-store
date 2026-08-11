@@ -1,0 +1,80 @@
+@import url(./normalize.css);
+@import "tailwindcss";
+
+@theme {
+    --font-sans: 'Roboto', sans-serif;
+    --color-main: #0f1115;
+    --color-secondary: #161a22;
+    --color-tertiary: #1e2433;
+
+    --color-primary-border: #232836;
+
+    --color-primary: #e6e6e6;
+    --color-secondary-text: #a0a4b8;
+    --color-muted: #6f738a;
+
+    --color-accent: #4f8cff;
+    --color-accent-hover: #6fa2ff;
+
+    --color-danger: #ff5c5c;
+    --color-danger-hover: #e04b4b;
+
+    --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.4);
+    --shadow-soft-hover: 0 12px 32px rgba(0, 0, 0, 0.6);
+
+    --radius-m: 12px;
+    --radius-l: 16px;
+
+    --animate-fast: 0.2s ease;
+    --animate-dropdown-fade: dropdownFade 0.2s ease-out;
+    --animate-spin-slow: rotation 15s linear infinite;
+}
+
+@keyframes dropdownFade {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@layer base {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Roboto, sans-serif;
+    }
+
+    html,
+    body,
+    #root {
+        height: 100%;
+    }
+
+    body {
+        background-color: var(--color-main);
+        color: var(--color-primary);
+    }
+
+    .App {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+}

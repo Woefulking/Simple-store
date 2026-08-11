@@ -1,13 +1,12 @@
-import { Modal } from "Shared/ui/Modal/Modal";
-import clsx from "clsx";
-import cls from './ChangePasswordModal.module.scss';
+import { Modal } from "shared/ui/Modal/Modal";
 import { useState } from "react";
-import { Input } from "Shared/ui/Input/Input";
-import { Button, ButtonVariants } from "Shared/ui/Button/Button";
+import { Input } from "shared/ui/Input/Input";
+import { Button, ButtonVariants } from "shared/ui/Button/Button";
 import z from "zod";
 import { updateUser } from "app/storage/userStorage";
-import { User, useUserStore } from "entities/User";
-import { PasswordErrors, PasswordForm, passwordSchema } from "..";
+import { type User, useUserStore } from "entities/User";
+import { type PasswordErrors, type PasswordForm, passwordSchema } from "..";
+import { Title, TitleVariants } from "shared/ui/Title/Title";
 
 interface PasswordModalProps {
     onClose: () => void;
@@ -69,12 +68,13 @@ export const ChangePasswordModal = (props: PasswordModalProps) => {
     }
 
     return (
-        <Modal onClose={onClose}>
-            <div className={clsx(cls.modal)}>
-                <h2 className={clsx(cls.title, cls.modalTitle)}>Password Change</h2>
-                <form className={clsx(cls.form)} name="changePasswordForm">
+        <Modal onClose={onClose} className="max-w-80!">
+            <div className="flex flex-col gap-6 w-full text-primary">
+                <Title variant={TitleVariants.H2} className="text-center">
+                    Password Change
+                </Title>
+                <form className="flex flex-col gap-4 flex-1" name="changePasswordForm" onSubmit={(e) => e.preventDefault()}>
                     <Input
-                        className={clsx(cls.input)}
                         type='password'
                         label='Password'
                         name='password'
@@ -83,7 +83,6 @@ export const ChangePasswordModal = (props: PasswordModalProps) => {
                         error={errors.password}
                     />
                     <Input
-                        className={clsx(cls.input)}
                         type='password'
                         label='Confirm password'
                         name='confirmpassword'
@@ -91,7 +90,7 @@ export const ChangePasswordModal = (props: PasswordModalProps) => {
                         onChange={(value: string) => onChangeHandler('confirm', value)}
                         error={errors.confirm}
                     />
-                    <Button variant={ButtonVariants.BLUE} padding={true} onClick={onSavePasswordHandler}>
+                    <Button variant={ButtonVariants.BLUE} padding={true} onClick={onSavePasswordHandler} className="w-full mt-2">
                         Save
                     </Button>
                 </form>

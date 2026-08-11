@@ -1,5 +1,5 @@
-import { CartItemType } from 'entities/Cart';
-import { Product } from 'entities/Product';
+import type { CartItemType } from 'entities/Cart';
+import type { Product } from 'entities/Product';
 import { useUserStore } from 'entities/User';
 import { saveToStorage } from 'app/storage/storage';
 

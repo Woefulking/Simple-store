@@ -1,12 +1,10 @@
-import { Title, TitleVariants } from 'Shared/ui/Title/Title';
-import { Button, ButtonVariants } from 'Shared/ui/Button/Button';
+import { Title, TitleVariants } from 'shared/ui/Title/Title';
+import { Button, ButtonVariants } from 'shared/ui/Button/Button';
 import { FiHeart } from "react-icons/fi";
 import { useNavigate } from 'react-router';
-import clsx from 'clsx';
-import cls from './FavoriteItem.module.scss';
-import { Product } from 'entities/Product';
+import type { Product } from 'entities/Product';
 import { useCartStore } from 'entities/Cart';
-import { getItemById } from 'Shared/lib/getItemById';
+import { getItemById } from 'shared/lib/getItemById';
 import { useFavoritesStore } from 'entities/Favorites';
 
 interface FavoriteItemProps {
@@ -42,37 +40,60 @@ export const FavoriteItem = (props: FavoriteItemProps) => {
     }
 
     return (
-        <div className={clsx(cls.item, className)}>
-            <div className={clsx(cls.preview)}>
-                <img src={item.image} alt={item.title} className={clsx(cls.img)} />
+        <div className={`flex flex-col gap-4 p-4 rounded-l bg-tertiary shadow-soft text-primary sm:flex-row sm:gap-0 ${className}`}> 
+            <div className="p-3 rounded-m bg-secondary self-center sm:self-auto sm:mr-5 shrink-0">
+                <img 
+                    src={item.image} 
+                    alt={item.title} 
+                    className="w-20 h-20 object-contain" 
+                />
             </div>
-            <div className={clsx(cls.details)}>
-                <Title variant={TitleVariants.H3}>{item.title}</Title>
-                <div className={clsx(cls.additional)}>
-                    <div className={clsx(cls.rating)}>
-                        <span className={clsx(cls.label)}>Rating: </span>
-                        <strong>{item.rating.rate}</strong>
-                    </div>
-                    <div className={clsx(cls.comment)}>
-                        <span className={clsx(cls.label)}>Reviews: </span>
-                        <strong>{item.rating.count}</strong>
+            <div className="flex-1 flex flex-col justify-between gap-3 sm:gap-0">
+                <div>
+                    <Title variant={TitleVariants.H3} className='text-center'>
+                        {item.title}
+                    </Title>
+                    
+                    <div className="flex flex-row gap-6 text-sm justify-center sm:justify-start">
+                        <div>
+                            <span className="text-secondary-text">Rating: </span>
+                            <strong className="font-semibold">{item.rating.rate}</strong>
+                        </div>
+                        <div>
+                            <span className="text-secondary-text">Reviews: </span>
+                            <strong className="font-semibold">{item.rating.count}</strong>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div className={clsx(cls.options)}>
-                <div className={clsx(cls.price)}>
-                    <span className={clsx(cls.label)}>Price: </span>
-                    <strong>$ {item.price}</strong>
+            <div className="flex flex-col justify-between items-center mt-2 pt-2 border-t border-primary-border/40 sm:mt-0 sm:pt-0 sm:border-none sm:items-end sm:pl-4">
+                
+                <div className="text-center sm:text-right text-lg mb-3 sm:mb-0">
+                    <span className="text-secondary-text text-sm sm:text-base">Price: </span>
+                    <strong className="font-bold text-xl sm:text-lg">$ {item.price}</strong>
                 </div>
-                <div className={clsx(cls.actions)}>
-                    <Button variant={ButtonVariants.ICON} onClick={handleFavoriteClick}>
+                
+                <div className="flex flex-row items-center gap-4 w-full justify-center sm:w-auto sm:justify-end">
+                    <Button 
+                        variant={ButtonVariants.ICON} 
+                        onClick={handleFavoriteClick} 
+                        className="p-1.5 transition-all text-accent hover:text-muted active:scale-95 [&_svg]:fill-accent hover:[&_svg]:fill-transparent hover:[&_svg]:stroke-muted"
+                    >
                         <FiHeart size={30} />
                     </Button>
-                    <Button padding={true} variant={ButtonVariants.BLUE} onClick={handleCartClick}>
+                    
+                    <Button 
+                        padding 
+                        variant={isInCart ? ButtonVariants.GREY : ButtonVariants.BLUE} 
+                        onClick={handleCartClick}
+                        className="flex-1 sm:flex-none sm:min-w-30"
+                    >
                         {!isInCart ? 'Buy' : 'Added to cart'}
                     </Button>
                 </div>
+
             </div>
+
         </div>
     )
 }

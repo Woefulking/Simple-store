@@ -1,11 +1,10 @@
-import clsx from 'clsx';
-import cls from './Loading.module.scss';
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { Modal } from "../Modal/Modal";
 
 export const Loading = () => {
     return (
-        <div className={clsx(cls.overlay)}>
-            <AiOutlineLoading3Quarters size={86} className={clsx(cls.loading)} />
-        </div>
+        <Modal onClose={() => {}} className="bg-transparent! border-none! shadow-none!">
+            <AiOutlineLoading3Quarters className="size-14 md:size-21.5 animate-spin text-muted" />
+        </Modal>
     )
 }

@@ -1,9 +1,9 @@
 import { create } from 'zustand/react';
-import { CartAction, CartActions, CartItemType, CartState } from './CartTypes';
-import { User } from 'entities/User';
+import type { CartAction, CartActions, CartItemType, CartState } from './CartTypes';
+import type { User } from 'entities/User';
 import { ensureGuestExsist } from 'entities/Guest';
 import { useFavoritesStore } from 'entities/Favorites';
-import { syncUserData } from 'Features/lib/syncUserData';
+import { syncUserData } from 'features/lib/syncUserData';
 
 export function updateItemCount(items: CartItemType[], id: number, value: number): CartItemType[] {
   const target = items.find((item) => item.id === id);
@@ -80,7 +80,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
 
       return {
         ...state,
-        items: updateItemCount(state.items, id, 1),
+        items: updateItemCount(state.items, id, +1),
       };
     }
     case 'decrease': {

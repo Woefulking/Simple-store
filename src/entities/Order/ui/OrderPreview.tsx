@@ -1,7 +1,5 @@
-import { formatOrderDate, Order } from "entities/Order";
-import { Title, TitleVariants } from "Shared/ui/Title/Title";
-import clsx from 'clsx';
-import cls from './OrderPreview.module.scss';
+import { formatOrderDate, type Order } from "entities/Order";
+import { Title, TitleVariants } from "shared/ui/Title/Title";
 
 interface OrderPreviewProps {
     order: Order;
@@ -14,21 +12,21 @@ export const OrderPreview = (props: OrderPreviewProps) => {
 
     return (
         <div
-            className={clsx(cls.preview, className)}
+            className={`${className} flex flex-row gap-6 p-4 rounded-l bg-tertiary cursor-pointer transition-all duration-200 md:hover:-translate-y-0.5 md:hover:shadow-soft`}
             onClick={onClick}
         >
-            <div className={clsx(cls.products)}>
+            <div className="grid grid-cols-2 grid-rows-[repeat(auto-fill,1fr)] place-items-center gap-1 w-27.5 h-27.5 p-3 rounded-m bg-secondary shrink-0 has-[img:only-child]:grid-cols-1">
                 {items.map((item) => (
-                    <img key={item.id} src={item.image} alt={item.title} />
+                    <img key={item.id} src={item.image} alt={item.title} className="w-10 h-10 object-contain parent-has-[img:only-child]:w-20 parent-has-[img:only-child]:h-20" />
                 ))}
             </div>
-            <div className={clsx(cls.details)}>
+            <div className="flex flex-col justify-center">
                 <Title variant={TitleVariants.H3}>
-                    <span className={clsx(cls.label)}>Order: </span>
+                    <span className="text-muted">Order: </span>
                     {order.id}
                 </Title>
-                <span className={clsx(cls.date)}>
-                    Order Date: <strong className={clsx(cls.dateValue)}>{formatOrderDate(order.createAt)}</strong>
+                <span className="text-xs md:text-sm text-muted">
+                    Order Date: <strong className="text-primary font-semibold">{formatOrderDate(order.createAt)}</strong>
                 </span>
             </div>
         </div>

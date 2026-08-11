@@ -1,5 +1,5 @@
 import { create } from 'zustand/react';
-import { UserAction, UserActions, UserState } from './UserTypes';
+import type { UserAction, UserActions, UserState } from './UserTypes';
 import { getCurrentUser } from 'app/storage/currentUserStore';
 import { updateUser } from 'app/storage/userStorage';
 

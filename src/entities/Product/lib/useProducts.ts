@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Product } from 'entities/Product';
+import type { Product } from 'entities/Product';
 import { useEffect, useState } from 'react';
 
 export const useProducts = () => {

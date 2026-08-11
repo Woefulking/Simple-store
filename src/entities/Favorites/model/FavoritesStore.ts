@@ -1,10 +1,10 @@
 import { create } from 'zustand';
-import { FavoritesAction, FavoritesActions, FavoritesState } from './FavoritesTypes';
+import type { FavoritesAction, FavoritesActions, FavoritesState } from './FavoritesTypes';
 import { getFromStorage } from 'app/storage/storage';
-import { User } from 'entities/User';
-import { Guest } from 'entities/Guest';
+import type { User } from 'entities/User';
+import type { Guest } from 'entities/Guest';
 import { useCartStore } from 'entities/Cart';
-import { syncUserData } from 'Features/lib/syncUserData';
+import { syncUserData } from 'features/lib/syncUserData';
 
 export function initFavorites(user: User | null) {
   if (user) {

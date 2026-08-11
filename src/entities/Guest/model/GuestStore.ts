@@ -1,5 +1,5 @@
 import { getFromStorage, saveToStorage } from 'app/storage/storage';
-import { Guest } from './GuestTypes';
+import type { Guest } from './GuestTypes';
 
 export function ensureGuestExsist(): Guest {
   const guest = getFromStorage<Guest>('guest');

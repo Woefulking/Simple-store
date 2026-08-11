@@ -1,13 +1,13 @@
-import { ReactNode } from "react";
 import { Route, Routes } from "react-router-dom";
-import App from "App";
 import { ProtectedRoute } from "./ProtectedRoute";
-import { ProductPage } from "Pages/ProductPage";
-import { AuthPage } from "Pages/AuthPage";
-import { CartPage } from "Pages/CartPage";
-import { ProfilePage } from "Pages/ProfilePage";
-import { FavoritesPage } from "Pages/FavoritesPage";
-import { OrderPage } from "Pages/OrderPage";
+import { ProductPage } from "pages/ProductPage";
+import { AuthPage } from "pages/AuthPage";
+import { CartPage } from "pages/CartPage";
+import { ProfilePage } from "pages/ProfilePage";
+import { FavoritesPage } from "pages/FavoritesPage";
+import { OrderPage } from "pages/OrderPage";
+import type { ReactNode } from "react";
+import App from "src/App";
 
 export type AppRoute = {
   path: string;

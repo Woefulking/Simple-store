@@ -1,8 +1,8 @@
-import { categories } from 'Shared/constants/categories';
-import { filters } from 'Shared/constants/filters';
+import { categories } from 'shared/constants/categories';
+import { filters } from 'shared/constants/filters';
 import { create } from 'zustand/react';
-import { FiltersAction, FiltersActions, FiltersState } from './FiltersType';
 import { applyFilters } from './FiltersHelpers';
+import type { FiltersAction, FiltersActions, FiltersState } from './FiltersType';
 
 function filterReducer(state: FiltersState, action: FiltersAction): FiltersState {
   switch (action.type) {
