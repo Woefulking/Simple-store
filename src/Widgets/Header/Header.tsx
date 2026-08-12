@@ -39,7 +39,7 @@ export const Header = () => {
   
   <Link to="/" className="flex items-center gap-4 font-semibold text-primary text-xl">
     <FaReact className="animate-spin-slow text-[56px]" />
-    <Title variant={TitleVariants.H1} className="mb-0!">ReactStore</Title>
+    <Title variant={TitleVariants.H1} className="my-0!">ReactStore</Title>
   </Link>
 
   <Button 
