@@ -32,11 +32,11 @@ const variantClasses: Record<ButtonVariant, string> = {
 };
 
 export const Button = (props: ButtonProps) => {
-  const { children, className, variant = ButtonVariants.GREY, padding, ...otherProps } = props;
+  const { type, children, className, variant = ButtonVariants.GREY, padding, ...otherProps } = props;
 
   return (
     <button
-      type='button'
+      type={type}
       className={`inline-flex items-center justify-center gap-2 border-none m-0 text-sm font-semibold uppercase cursor-pointer select-none rounded-m outline-none disabled:opacity-50 disabled:pointer-events-none ${variantClasses[variant]} ${padding && 'px-5 py-3 text-base md:px-4.5 md:py-2.5 md:text-sm'} ${className}`}
       {...otherProps}
     >
