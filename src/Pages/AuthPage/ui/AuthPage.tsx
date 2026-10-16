@@ -125,7 +125,7 @@ export const AuthPage = () => {
 
     return (
         <div className="h-full flex items-center justify-center bg-main p-4 sm:p-6 text-primary">
-            <form onSubmit={isRegistration ? registerForm.handleSubmit(onRegisterSubmit,  (errors) => console.log('REGISTER INVALID:', errors)) : loginForm.handleSubmit(onLoginSubmit)} className="w-full max-w-90 bg-secondary rounded-2xl transition-shadow duration-200 hover:shadow-soft-hover px-5 py-6 sm:px-7 sm:py-8 flex flex-col">
+            <form onSubmit={isRegistration ? registerForm.handleSubmit(onRegisterSubmit) : loginForm.handleSubmit(onLoginSubmit)} className="w-full max-w-90 bg-secondary rounded-2xl transition-shadow duration-200 hover:shadow-soft-hover px-5 py-6 sm:px-7 sm:py-8 flex flex-col">
                 <Title variant={TitleVariants.H1} className="text-center">
                     {isRegistration ? 'Registration' : 'Log In'}
                 </Title>

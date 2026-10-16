@@ -1,29 +1,33 @@
-import type { CategoryType } from "Shared/constants/categories";
-import { useEffect } from "react";
+import { useMemo } from "react";
 import { useParams } from "react-router";
-import { useFilterStore } from "Widgets/Filters/model/FiltersStore";
 import { Filters } from "Widgets/Filters/ui/Filters";
 import { ProductItem } from "Features/ProductItem";
 import { useProducts } from "Entities/Product";
 import { Loading } from "Shared/ui/Loading/Loading";
 import { ErrorMessage } from "Shared/ui/ErrorMessage/ErrorMessage";
 
+const CATEGORY_MAP: Record<string, string> = {
+    "men": "men's clothing",
+    "women": "women's clothing",
+    "electronics": "electronics",
+    "jewelery": "jewelery"
+};
+
 export const ProductPage = () => {
-    const { category } = useParams();
+    const { category } = useParams<{category: string}>();
     const { products, loading, error } = useProducts();
-    const filterDispatch = useFilterStore((state) => state.dispatch);
 
-    useEffect(() => {
-        filterDispatch({ type: 'init', payload: products });
-    }, [products, filterDispatch]);
+    const filteredProducts = useMemo(() => {
+        if (!products) return [];
 
-    const filteredProducts = useFilterStore((state) => state.filtered);
+        const currentCategory = category ?? 'all';
 
-    useEffect(() => {
-        filterDispatch({
-            type: (category ?? 'all') as CategoryType,
-        });
-    }, [category, filterDispatch]);
+        if(currentCategory === 'all') return products;
+
+        const apiCategoryName = CATEGORY_MAP[currentCategory] ?? currentCategory;
+
+        return products.filter((product) => product.category === apiCategoryName);
+    }, [products, category])
 
     if (loading) {
         return <Loading />;
