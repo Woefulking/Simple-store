@@ -8,12 +8,12 @@ export const useProducts = () => {
     queryFn: async () => {
       const response = await axios.get<Product[]>('https://fakestoreapi.com/products');
       return response.data;
-    }
-  })
+    },
+  });
 
   return {
     products: data,
     loading: isLoading,
-    error
-  }
+    error,
+  };
 };
